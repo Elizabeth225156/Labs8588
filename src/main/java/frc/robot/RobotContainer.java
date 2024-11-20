@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; // SmartDashboard
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup; // Parallel command group
 import edu.wpi.first.wpilibj2.command.WaitCommand; // Wait command
+import frc.robot.subsystems.SpinOnButton;
 
 /**
  * The RobotContainer class is responsible for declaring the robot's subsystems,
@@ -35,6 +36,7 @@ public class RobotContainer {
   public static final Shooter shooter = new Shooter();
   public static final Wrist wrist = new Wrist();
   public static final AutonCommand m_autonCommand = new AutonCommand(m_Swerb, intake, indexing, shooter, wrist);
+  public static final SpinOnButton spinOnButton = new SpinOnButton(m_Swerb, intake, indexing, shooter, wrist);
 
   // Create an Xbox controller instance to handle driver input (0 is the port
   // number)
@@ -150,6 +152,10 @@ public class RobotContainer {
       wrist.wristDown(0);
     }));
 
+    driverController.x()
+    .whileTrue(new InstantCommand(() -> 
+      spinOnButton.spin()
+    ));
     // Wind-up shooting mechanism: when X button is held
     // driverController.x()
     // .whileTrue(new StartEndCommand(
