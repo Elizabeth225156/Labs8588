@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
@@ -28,11 +29,11 @@ public class SpinOnButton extends SubsystemBase {
   // Define omega for spinning
   final double omegaRadiansPerSecond = Math.PI / 6;
  
-  private final SwerveSubsystem driveSubsystem;
+  private SwerveSubsystem driveSubsystem;
 
   // Constructor that takes the subsystems as parameters
-  public SpinOnButton(SwerveSubsystem driveSubsystem, Intake intake, Indexing indexing, Shooter shooter, Wrist wrist) {
-    this.driveSubsystem = driveSubsystem;
+  public SpinOnButton() {
+    this.driveSubsystem = RobotContainer.m_Swerb;
   }
 
   // Method to perform the spin action
