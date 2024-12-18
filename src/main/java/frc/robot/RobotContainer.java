@@ -36,7 +36,7 @@ public class RobotContainer {
   public static final Shooter shooter = new Shooter();
   public static final Wrist wrist = new Wrist();
   public static final AutonCommand m_autonCommand = new AutonCommand(m_Swerb, intake, indexing, shooter, wrist);
-  public static final SpinOnButton spinOnButton = new SpinOnButton(m_Swerb, intake, indexing, shooter, wrist);
+  public static final SpinOnButton spinOnButton = new SpinOnButton();
 
   // Create an Xbox controller instance to handle driver input (0 is the port
   // number)
